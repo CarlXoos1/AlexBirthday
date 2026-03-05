@@ -18,7 +18,10 @@
   <meta name="twitter:image" content="https://happy18thbirthdayalexcutie.vercel.app/alex.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=Great+Vibes&family=Outfit:wght@200;300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300;1,9..144,400&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300&display=swap"/>
   <style>
     :root {
       --bg:       #faf8ff;
@@ -52,6 +55,7 @@
     body {
       min-height: 100vh;
       background: var(--bg);
+      background-color: #faf8ff;
       font-family: 'Outfit', sans-serif;
       font-weight: 300;
       color: var(--tx-muted);
@@ -257,6 +261,7 @@
       inset: 4px;
       border-radius: 50%;
       background: var(--bg);
+      background-color: #faf8ff;
       z-index: 1;
     }
 
@@ -432,7 +437,7 @@
           src="alex.jpg"
           fetchpriority="high"
           loading="eager"
-          decoding="async"
+          decoding="sync"
           alt="Alex Gongora"
           onerror="this.style.display='none'; document.getElementById('pf').style.display='flex'"
         />
