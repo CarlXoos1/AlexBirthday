@@ -32,6 +32,7 @@
       --gb:     rgba(184,122,173,0.22);
       --acc:    #a0609a;
       --acc-lt: #dbbdd6;
+      --acc-rg: #b87aad;
       --tg:     #7a5e9a;
       --tm:     #5d3f80;
       --ts:     #4e3070;
@@ -44,12 +45,12 @@
     html {
       scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
-      color-scheme: light only;
+      color-scheme: only light;
     }
 
     body {
       min-height: 100vh;
-      background: #faf8ff;
+      background: var(--bg);
       font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 300;
       color: var(--tm);
@@ -57,7 +58,6 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
-      color-scheme: light;
     }
 
     body::after {
@@ -112,14 +112,14 @@
     .eyebrow {
       font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 400; font-size: 12px; letter-spacing: 7px; text-transform: uppercase;
-      color: #7a5e9a; margin-bottom: 44px; animation-delay: 0s;
+      color: #7a5e9a; margin-bottom: 44px;
     }
 
     .age-hero {
       font-family: 'Bodoni Moda', 'Georgia', serif;
       font-weight: 400; font-size: clamp(148px, 26vw, 220px);
       line-height: 0.85; color: transparent;
-      -webkit-text-stroke: 2px #b87aad;
+      -webkit-text-stroke: 2px var(--acc-rg);
       letter-spacing: -8px; position: relative; user-select: none;
       animation-delay: 0.14s; will-change: opacity, transform; backface-visibility: hidden;
     }
@@ -156,7 +156,7 @@
     .name-sub {
       font-family: 'Fraunces', 'Georgia', serif;
       font-weight: 300; font-style: italic; font-size: clamp(19px, 3vw, 26px);
-      color: #4e3070; letter-spacing: 0.5px; display: block;
+      color: var(--ts); letter-spacing: 0.5px; display: block;
     }
 
     .name-binibini {
@@ -180,7 +180,7 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    .photo-gap { position: absolute; inset: 4px; border-radius: 50%; background: #faf8ff; z-index: 1; }
+    .photo-gap { position: absolute; inset: 4px; border-radius: 50%; background: var(--bg); z-index: 1; }
 
     .photo-frame {
       position: absolute; inset: 10px; border-radius: 50%; overflow: hidden; z-index: 2;
@@ -253,6 +253,21 @@
     .btn:hover { background: rgba(255,255,255,0.9); border-color: var(--acc); transform: translate3d(0,-3px,0); }
     .btn:active { transform: translate3d(0,0,0) scale(0.97); }
 
+    .tw-cursor {
+      display: inline;
+      font-family: 'Fraunces', 'Georgia', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(16px, 2.4vw, 20px);
+      color: var(--acc);
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
     footer {
       position: relative; z-index: 3;
       padding-bottom: 52px; text-align: center;
@@ -311,17 +326,7 @@
 
   <article class="card in">
     <span class="card-lbl">A Message for You</span>
-    <p class="card-body">
-      Hello Binibining Alex, maligayang kaarawan sa'yo! Aamin na ulit ako —
-      crush pa rin kita, bleh. Hihi. Alam mo ba, sa mga mata ko, napakaganda mo
-      kahit hindi tayo nagkatinginan? Haha. Pinagmamasdan lang kasi kita nang tahimik…
-      at nakakatuwa pa yung bilis mong maubusan ng pasensya, kaya lalo kang naging
-      cute sa akin. Good luck sa college ha… Nawa'y mapalibutan ka ng mga taong may
-      mabuting intensyon, sana lagi kang mag-iingat kung saan ka man mapadpad…
-      at sana palagi kang masaya at matagumpay sa lahat ng gusto mong maabot.
-      Maraming salamat din dahil nakilala kita — isa iyon sa mga bagay na talagang
-      nagpapasaya sa akin. Hehe… Ingat ka palagi ha, Binibining Alex!
-    </p>
+    <p class="card-body" id="card-body"><span id="card-body-text"></span><span class="tw-cursor" aria-hidden="true">|</span></p>
     <span class="card-acc">Happy 18th Birthday, Alex 🎂</span>
     <hr class="card-rule"/>
     <p class="card-sig">With Love, Carl 🌸</p>
@@ -470,6 +475,138 @@
   window.addEventListener('load', function () {
     setTimeout(launchConfetti, 900);
   });
+
+  (function () {
+    const freq = {
+      G4:392.00, A4:440.00, Bb4:466.16, B4:493.88,
+      C5:523.25, D5:587.33, Eb5:622.25, E5:659.25, Fs5:739.99,
+      F5:698.46, G5:783.99, Ab5:830.61, A5:880.00,
+      Bb5:932.33, B5:987.77, C6:1046.50, D6:1174.66
+    };
+
+    const BPM  = 84;
+    const BEAT = 60 / BPM;
+
+    const v1 = [
+      ['G4',0.75],['G4',0.25],
+      ['A4',1],['G4',1],['C5',1],['B4',2],
+      ['G4',0.75],['G4',0.25],
+      ['A4',1],['G4',1],['D5',1],['C5',2],
+      ['G4',0.75],['G4',0.25],
+      ['G5',1],['E5',1],['C5',1],['B4',1],['A4',2],
+      ['F5',0.75],['F5',0.25],
+      ['E5',1],['C5',1],['D5',1],['C5',3],
+    ];
+
+    const v2 = [
+      ['C5',0.75],['C5',0.25],
+      ['D5',1],['C5',1],['F5',1],['E5',2],
+      ['C5',0.75],['C5',0.25],
+      ['D5',1],['C5',1],['G5',1],['F5',2],
+      ['C5',0.75],['C5',0.25],
+      ['C6',1],['A5',1],['F5',1],['E5',1],['D5',2],
+      ['Bb5',0.75],['Bb5',0.25],
+      ['A5',1],['F5',1],['G5',1],['F5',3],
+    ];
+
+    const v3 = [
+      ['D5',0.75],['D5',0.25],
+      ['E5',1],['D5',1],['G5',1],['Fs5',2],
+      ['D5',0.75],['D5',0.25],
+      ['E5',1],['D5',1],['A5',1],['G5',2],
+      ['D5',0.75],['D5',0.25],
+      ['D6',1],['B5',1],['G5',1],['Fs5',1],['E5',2],
+      ['C6',0.75],['C6',0.25],
+      ['B5',1],['G5',1],['A5',1],['G5',3],
+    ];
+
+    const coda = [
+      ['REST',0.5],
+      ['G4',0.2],['B4',0.2],['D5',0.2],['G5',0.2],['B5',0.2],
+      ['D6',4],
+    ];
+
+    const GAP  = [['REST', 1.5]];
+    const song = [...v1, ...GAP, ...v2, ...GAP, ...v3, ...coda];
+
+    let played = false;
+
+    function playNote(ctx, master, t, note, dur) {
+      if (!freq[note]) return;
+      const osc = ctx.createOscillator();
+      const env = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq[note], t);
+      env.gain.setValueAtTime(0, t);
+      env.gain.linearRampToValueAtTime(1, t + 0.018);
+      env.gain.setValueAtTime(1, t + dur - 0.07);
+      env.gain.linearRampToValueAtTime(0, t + dur);
+      osc.connect(env);
+      env.connect(master);
+      osc.start(t);
+      osc.stop(t + dur + 0.01);
+    }
+
+    function play(ctx) {
+      if (played) return;
+      played = true;
+      let t = ctx.currentTime + 0.12;
+      const master = ctx.createGain();
+      master.gain.setValueAtTime(0.22, t);
+      master.connect(ctx.destination);
+      song.forEach(function([note, beats]) {
+        const dur = beats * BEAT;
+        playNote(ctx, master, t, note, dur);
+        t += dur;
+      });
+    }
+
+    function unlock() {
+      if (played) return;
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        ctx.resume().then(function () { play(ctx); });
+      } catch (e) {}
+    }
+
+    ['click','touchstart','touchend','keydown','scroll','pointerdown'].forEach(function (ev) {
+      document.addEventListener(ev, unlock, { once: true, passive: true });
+    });
+  }());
+
+  (function () {
+    const MSG    = "Hello Binibining Alex, maligayang kaarawan sa\u2019yo! Aamin na ulit ako \u2014 crush pa rin kita, bleh. Hihi. Alam mo ba, sa mga mata ko, napakaganda mo kahit hindi tayo nagkatinginan? Haha. Pinagmamasdan lang kasi kita nang tahimik\u2026 at nakakatuwa pa yung bilis mong maubusan ng pasensya, kaya lalo kang naging cute sa akin. Good luck sa college ha\u2026 Nawa\u2019y mapalibutan ka ng mga taong may mabuting intensyon, sana lagi kang mag-iingat kung saan ka man mapadpad\u2026 at sana palagi kang masaya at matagumpay sa lahat ng gusto mong maabot. Maraming salamat din dahil nakilala kita \u2014 isa iyon sa mga bagay na talagang nagpapasaya sa akin. Hehe\u2026 Ingat ka palagi ha, Binibining Alex!";
+    const el     = document.getElementById('card-body-text');
+    const cursor = document.querySelector('.tw-cursor');
+    let   i      = 0;
+    let   started = false;
+
+    function type() {
+      if (i <= MSG.length) {
+        el.textContent = MSG.slice(0, i);
+        i++;
+        setTimeout(type, i < 6 ? 60 : 28);
+      } else {
+        setTimeout(function () {
+          cursor.style.animation = 'none';
+          cursor.style.opacity   = '0';
+        }, 1400);
+      }
+    }
+
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          obs.disconnect();
+          setTimeout(type, 400);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    obs.observe(document.getElementById('card-body'));
+  }());
+
 }());
 </script>
 </body>
