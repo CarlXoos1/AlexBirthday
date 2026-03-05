@@ -111,8 +111,8 @@
 
     .eyebrow {
       font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 400; font-size: 12px; letter-spacing: 7px; text-transform: uppercase;
-      color: #7a5e9a; margin-bottom: 44px;
+      font-weight: 400; font-size: 13px; letter-spacing: 4px;
+      color: var(--tg); margin-bottom: 44px;
     }
 
     .age-hero {
@@ -134,7 +134,7 @@
     .age-caption {
       font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 400; font-size: 13px; letter-spacing: 5px; text-transform: uppercase;
-      color: #7a5e9a; display: block; margin-top: 20px; margin-bottom: 64px; animation-delay: 0.26s;
+      color: var(--tg); display: block; margin-top: 20px; margin-bottom: 64px; animation-delay: 0.26s;
     }
 
     .name-block {
@@ -162,7 +162,7 @@
     .name-binibini {
       font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 400; font-size: 12px; letter-spacing: 6px; text-transform: uppercase;
-      color: #7a5e9a; display: block;
+      color: var(--tg); display: block;
     }
 
     .photo-section { margin-bottom: 76px; animation-delay: 0.48s; }
@@ -216,13 +216,13 @@
       display: block;
       font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 400; font-size: 12px; letter-spacing: 6px; text-transform: uppercase;
-      color: #7a5e9a; margin-bottom: 32px;
+      color: var(--tg); margin-bottom: 32px;
     }
 
     .card-body {
       font-family: 'Fraunces', 'Georgia', serif;
       font-weight: 300; font-style: italic; font-size: clamp(16px, 2.4vw, 20px);
-      color: #5d3f80; line-height: 2.0; margin-bottom: 32px;
+      color: var(--tm); line-height: 2.0; margin-bottom: 32px;
       text-align: justify; text-align-last: center;
     }
 
@@ -273,7 +273,7 @@
       padding-bottom: 52px; text-align: center;
       font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
       font-weight: 400; font-size: 11px; letter-spacing: 6px; text-transform: uppercase;
-      color: #7a5e9a;
+      color: var(--tg);
     }
   </style>
 </head>
@@ -576,9 +576,10 @@
 
   (function () {
     const MSG    = "Hello Binibining Alex, maligayang kaarawan sa\u2019yo! Aamin na ulit ako \u2014 crush pa rin kita, bleh. Hihi. Alam mo ba, sa mga mata ko, napakaganda mo, kahit hindi man tayo madalas nagkakatitigan. Haha. Pinagmamasdan lang kasi kita nang tahimik\u2026 at nakakatuwa pa yung bilis mong maubusan ng pasensya, kaya lalo kang naging cute sa akin. Good luck sa college ha\u2026 Nawa\u2019y mapalibutan ka ng mga taong may mabuting intensyon, sana lagi kang mag-iingat kung saan ka man mapadpad\u2026 at sana palagi kang masaya at matagumpay sa lahat ng gusto mong maabot. Maraming salamat din dahil nakilala kita \u2014 isa iyon sa mga bagay na talagang nagpapasaya sa akin. Hehe\u2026 Ingat ka palagi ha, Binibining Alex!";
+    const bodyEl = document.getElementById('card-body');
     const el     = document.getElementById('card-body-text');
     const cursor = document.querySelector('.tw-cursor');
-    let   i      = 0;
+    let   i       = 0;
     let   started = false;
 
     function type() {
@@ -599,12 +600,15 @@
         if (entry.isIntersecting && !started) {
           started = true;
           obs.disconnect();
+          el.textContent = MSG;
+          bodyEl.style.minHeight = bodyEl.scrollHeight + 'px';
+          el.textContent = '';
           setTimeout(type, 400);
         }
       });
     }, { threshold: 0.3 });
 
-    obs.observe(document.getElementById('card-body'));
+    obs.observe(bodyEl);
   }());
 
 }());
