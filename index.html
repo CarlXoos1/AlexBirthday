@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy 18th, Alex 🌸</title>
-
-  <!-- SEO / Open Graph -->
   <link rel="canonical" href="https://happy18thbirthdayalexcutie.vercel.app/" />
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://happy18thbirthdayalexcutie.vercel.app/" />
@@ -18,40 +16,30 @@
   <meta name="twitter:title"       content="Happy 18th Birthday, Alex Gongora 🌸" />
   <meta name="twitter:description" content="A special birthday page for Binibining Alex Gongora on her 18th birthday." />
   <meta name="twitter:image"       content="https://happy18thbirthdayalexcutie.vercel.app/alex.jpg" />
-
-  <!-- Fonts -->
   <link rel="dns-prefetch"  href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch"  href="https://fonts.gstatic.com" />
   <link rel="preconnect"    href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect"    href="https://fonts.gstatic.com"    crossorigin />
   <link rel="stylesheet"    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=Great+Vibes&family=Outfit:wght@300;400&display=swap" />
-
   <style>
-    /* ─── Design Tokens ─────────────────────────────────────────────────── */
     :root {
-      /* 60% — ultra-soft lavender-white base */
-      --bg:      #faf7ff;
-      --glass:   rgba(255, 252, 255, 0.82);
-
-      /* 30% — aurora secondary pastels (orbs, rings, panels) */
-      --s1:      #ecdaf7;   /* lavender */
-      --s2:      #fbe6f1;   /* rose     */
-      --s3:      #e3f5ef;   /* mint     */
-      --s4:      #fdf2e4;   /* peach    */
-      --s-bd:    rgba(172, 110, 162, 0.20);
-
-      /* 10% — mauve / plum accent */
-      --a:       #9a5c96;
-      --a-lt:    #d4b0d0;
-      --a-md:    #b87aad;
-      --t-lo:    #7a5e9a;
-      --t-mi:    #5d3f80;
-      --t-st:    #4e3070;
-      --t-ri:    #432460;
-      --t-dk:    #231038;
+      --bg:   #faf7ff;
+      --glass: rgba(255, 252, 255, 0.82);
+      --s1:   #ecdaf7;
+      --s2:   #fbe6f1;
+      --s3:   #e3f5ef;
+      --s4:   #fdf2e4;
+      --s-bd: rgba(172, 110, 162, 0.20);
+      --a:    #9a5c96;
+      --a-lt: #d4b0d0;
+      --a-md: #b87aad;
+      --t-lo: #7a5e9a;
+      --t-mi: #5d3f80;
+      --t-st: #4e3070;
+      --t-ri: #432460;
+      --t-dk: #231038;
     }
 
-    /* ─── Reset ─────────────────────────────────────────────────────────── */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -76,7 +64,6 @@
       text-rendering: optimizeLegibility;
     }
 
-    /* subtle grain overlay — purely decorative */
     body::after {
       content: '';
       position: fixed;
@@ -87,7 +74,6 @@
       opacity: 0.30;
     }
 
-    /* ─── Aurora Background ──────────────────────────────────────────────── */
     .aurora {
       position: fixed;
       inset: 0;
@@ -116,17 +102,16 @@
     @keyframes drift3 { from { transform: translate3d(0,    0,   0) scale(1);    } to { transform: translate3d( 5vw, -7vh, 0) scale(1.10); } }
     @keyframes drift4 { from { transform: translate3d(0,    0,   0) scale(1);    } to { transform: translate3d(-4vw, -6vh, 0) scale(0.94); } }
 
-    /* ─── Canvases ───────────────────────────────────────────────────────── */
     #floatCanvas,
     #confettiCanvas {
       position: fixed;
       inset: 0;
       pointer-events: none;
     }
-    #floatCanvas    { z-index: 2;   }
+
+    #floatCanvas    { z-index: 2; }
     #confettiCanvas { z-index: 100; }
 
-    /* ─── Main Layout ────────────────────────────────────────────────────── */
     main {
       position: relative;
       z-index: 3;
@@ -134,10 +119,8 @@
       flex-direction: column;
       align-items: center;
       padding: 96px 24px 120px;
-      gap: 0;
     }
 
-    /* ─── Entrance Animation ─────────────────────────────────────────────── */
     .in {
       opacity: 0;
       will-change: opacity, transform;
@@ -149,7 +132,6 @@
       to   { opacity: 1; transform: translate3d(0,  0px, 0); }
     }
 
-    /* ─── Hero Section ───────────────────────────────────────────────────── */
     .hero {
       display: flex;
       flex-direction: column;
@@ -166,7 +148,6 @@
       text-transform: uppercase;
       color: var(--t-lo);
       margin-bottom: 36px;
-      animation-delay: 0s;
     }
 
     .age-numeral {
@@ -208,7 +189,6 @@
       animation-delay: 0.26s;
     }
 
-    /* ─── Identity / Name Section ────────────────────────────────────────── */
     .identity {
       display: flex;
       flex-direction: column;
@@ -257,7 +237,6 @@
       gap: 12px;
     }
 
-    /* ─── Photo Section ──────────────────────────────────────────────────── */
     .photo-section {
       margin-bottom: 96px;
       animation-delay: 0.48s;
@@ -336,7 +315,6 @@
 
     .photo-fallback .icon { font-size: 36px; }
 
-    /* ─── Message Card ───────────────────────────────────────────────────── */
     .card {
       max-width: 580px;
       width: 100%;
@@ -397,7 +375,6 @@
       color: var(--a);
     }
 
-    /* ─── Typewriter Cursor ──────────────────────────────────────────────── */
     .tw-cursor {
       display: inline;
       font-family: 'Fraunces', Georgia, serif;
@@ -413,7 +390,6 @@
       50%       { opacity: 0; }
     }
 
-    /* ─── Celebrate Button ───────────────────────────────────────────────── */
     .btn {
       font-family: 'Outfit', sans-serif;
       font-weight: 400;
@@ -429,21 +405,17 @@
       padding: 18px 52px;
       cursor: pointer;
       transition:
-        background    0.35s ease,
-        border-color  0.35s ease,
-        transform     0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        background   0.35s ease,
+        border-color 0.35s ease,
+        transform    0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       animation-delay: 0.74s;
       will-change: transform;
     }
 
-    .btn:hover  { background: rgba(255, 255, 255, 0.92); border-color: var(--a); transform: translate3d(0, -3px, 0); }
-    .btn:active { transform: translate3d(0, 0, 0) scale(0.97); }
-    .btn:focus-visible {
-      outline: 2px solid var(--a);
-      outline-offset: 4px;
-    }
+    .btn:hover       { background: rgba(255, 255, 255, 0.92); border-color: var(--a); transform: translate3d(0, -3px, 0); }
+    .btn:active      { transform: translate3d(0, 0, 0) scale(0.97); }
+    .btn:focus-visible { outline: 2px solid var(--a); outline-offset: 4px; }
 
-    /* ─── Footer ─────────────────────────────────────────────────────────── */
     footer {
       position: relative;
       z-index: 3;
@@ -457,12 +429,11 @@
       color: var(--t-lo);
     }
 
-    /* ─── Responsive ─────────────────────────────────────────────────────── */
     @media (max-width: 480px) {
       main { padding: 72px 20px 100px; }
 
-      .hero { margin-bottom: 64px; }
-      .identity { margin-bottom: 72px; gap: 12px; }
+      .hero          { margin-bottom: 64px; }
+      .identity      { margin-bottom: 72px; gap: 12px; }
       .photo-section { margin-bottom: 72px; }
 
       .card {
@@ -471,10 +442,9 @@
         margin-bottom: 48px;
       }
 
-      .card-label  { margin-bottom: 28px; }
-      .card-body   { line-height: 1.95; }
-      .card-rule   { margin-bottom: 24px; }
-
+      .card-label { margin-bottom: 28px; }
+      .card-body  { line-height: 1.95; }
+      .card-rule  { margin-bottom: 24px; }
       .age-numeral { letter-spacing: -4px; }
     }
 
@@ -489,7 +459,6 @@
 </head>
 <body>
 
-<!-- Aurora background orbs -->
 <div class="aurora" aria-hidden="true">
   <div class="orb o1"></div>
   <div class="orb o2"></div>
@@ -497,20 +466,17 @@
   <div class="orb o4"></div>
 </div>
 
-<!-- Particle canvases -->
-<canvas id="floatCanvas"></canvas>
-<canvas id="confettiCanvas"></canvas>
+<canvas id="floatCanvas" aria-hidden="true"></canvas>
+<canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
 <main>
 
-  <!-- Hero: age display -->
   <header class="hero">
     <p class="eyebrow in">A Birthday for Someone Special</p>
     <div class="age-numeral in" aria-label="18">18</div>
     <span class="age-caption in">Years of Being Wonderful</span>
   </header>
 
-  <!-- Celebrant identity -->
   <section class="identity in" aria-label="Birthday celebrant">
     <p class="name-greeting">Happy Birthday, Alex Cutie!</p>
     <h1 class="name-main">Alex Gongora</h1>
@@ -518,7 +484,6 @@
     <p class="name-title"><span aria-hidden="true">✦</span> Binibining Alex <span aria-hidden="true">✦</span></p>
   </section>
 
-  <!-- Photo -->
   <figure class="photo-section in" aria-label="Photo of Alex Gongora">
     <div class="photo-outer">
       <div class="photo-ring"  aria-hidden="true"></div>
@@ -530,7 +495,7 @@
           fetchpriority="high"
           loading="eager"
           decoding="sync"
-          onerror="this.style.display='none'; document.getElementById('pf').style.display='flex'"
+          onerror="this.style.display='none';document.getElementById('pf').style.display='flex'"
         />
         <div id="pf" class="photo-fallback" aria-hidden="true">
           <span class="icon">🌸</span>
@@ -540,7 +505,6 @@
     </div>
   </figure>
 
-  <!-- Message card -->
   <article class="card in" aria-label="Birthday message">
     <p class="card-label">A Message for You</p>
     <p class="card-body" id="card-body">
@@ -551,8 +515,7 @@
     <p class="card-sig">With Love, Carl 🌸</p>
   </article>
 
-  <!-- Confetti trigger -->
-  <button class="btn in" type="button" onclick="launchConfetti()">✦ Celebrate ✦</button>
+  <button class="btn in" type="button" id="celebrateBtn">✦ Celebrate ✦</button>
 
 </main>
 
@@ -564,20 +527,22 @@
 (function () {
   'use strict';
 
-  /* ──────────────────────────────────────────────────
-     FLOATING EMOJI PARTICLES
-  ────────────────────────────────────────────────── */
   const fc = document.getElementById('floatCanvas');
   const fx = fc.getContext('2d', { alpha: true });
-  const EM = ['🌸','🌷','✨','🫧','💮','🕊️','🌙','⭐','💐','🌺','🎀','💫'];
+  const cc = document.getElementById('confettiCanvas');
+  const cx = cc.getContext('2d', { alpha: true });
+
+  const EM   = ['🌸','🌷','✨','🫧','💮','🕊️','🌙','⭐','💐','🌺','🎀','💫'];
+  const COLS = ['#ecdaf7','#fbe6f1','#e3f5ef','#fdf2e4','#d4b0d0','#b87aad','#f8d7ea','#ffffff','#e8d5f5','#ffd6f0'];
+
   let W = 0, H = 0;
 
-  function resizeF() {
-    W = fc.width  = window.innerWidth;
-    H = fc.height = window.innerHeight;
+  function resize() {
+    W = fc.width  = cc.width  = window.innerWidth;
+    H = fc.height = cc.height = window.innerHeight;
   }
-  resizeF();
-  window.addEventListener('resize', resizeF, { passive: true });
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
 
   function spawnF(randomY) {
     return {
@@ -594,28 +559,27 @@
     };
   }
 
-  const floaters = Array.from({ length: 22 }, function () {
-    var f = spawnF(true);
+  const floaters = Array.from({ length: 22 }, () => {
+    const f = spawnF(true);
     f.a = f.ta;
     return f;
   });
 
-  var prevFT = performance.now();
+  let prevFT = performance.now();
 
   function tickF(t) {
-    var dt = Math.min((t - prevFT) * 0.06, 2);
+    const dt = Math.min((t - prevFT) * 0.06, 2);
     prevFT = t;
     fx.clearRect(0, 0, W, H);
-
-    for (var i = 0; i < floaters.length; i++) {
-      var f = floaters[i];
+    for (let i = 0; i < floaters.length; i++) {
+      const f = floaters[i];
       f.y -= f.vy * dt;
       f.x += (f.vx + Math.sin(f.w) * 0.22) * dt;
       f.w += f.ws * dt;
-      var fading = f.y < H * 0.14;
+      const fading = f.y < H * 0.14;
       f.a += ((fading ? 0 : f.ta) - f.a) * 0.03 * dt;
       if (fading && f.a < 0.006) { Object.assign(f, spawnF(false)); continue; }
-      var alpha = f.a < 0 ? 0 : f.a > 1 ? 1 : f.a;
+      const alpha = f.a < 0 ? 0 : f.a > 1 ? 1 : f.a;
       if (alpha < 0.005) continue;
       fx.save();
       fx.globalAlpha = alpha;
@@ -624,35 +588,19 @@
       fx.fillText(f.e, (f.x + 0.5) | 0, (f.y + 0.5) | 0);
       fx.restore();
     }
-
     requestAnimationFrame(tickF);
   }
 
   requestAnimationFrame(tickF);
 
-  /* ──────────────────────────────────────────────────
-     CONFETTI
-  ────────────────────────────────────────────────── */
-  var cc = document.getElementById('confettiCanvas');
-  var cx = cc.getContext('2d', { alpha: true });
-  var COLS = ['#ecdaf7','#fbe6f1','#e3f5ef','#fdf2e4','#d4b0d0','#b87aad','#f8d7ea','#ffffff','#e8d5f5','#ffd6f0'];
-  var cW = 0, cH = 0;
+  let pieces  = [];
+  let running = false;
+  let prevCT  = 0;
 
-  function resizeC() {
-    cW = cc.width  = window.innerWidth;
-    cH = cc.height = window.innerHeight;
-  }
-  resizeC();
-  window.addEventListener('resize', resizeC, { passive: true });
-
-  var pieces  = [];
-  var running = false;
-  var prevCT  = performance.now();
-
-  window.launchConfetti = function () {
-    for (var i = 0; i < 220; i++) {
+  function launchConfetti() {
+    for (let i = 0; i < 220; i++) {
       pieces.push({
-        x:   Math.random() * cW,
+        x:   Math.random() * W,
         y:   -8 - Math.random() * 150,
         w:   4 + Math.random() * 7,
         h:   3 + Math.random() * 4,
@@ -665,24 +613,27 @@
         a:   1,
       });
     }
-    if (!running) { running = true; tickC(performance.now()); }
-  };
+    if (!running) {
+      running = true;
+      prevCT  = performance.now();
+      requestAnimationFrame(tickC);
+    }
+  }
 
   function tickC(t) {
-    var dt   = Math.min((t - prevCT) * 0.06, 2);
-    prevCT   = t;
-    cx.clearRect(0, 0, cW, cH);
-    var alive = 0;
-
-    for (var i = 0; i < pieces.length; i++) {
-      var p = pieces[i];
+    const dt = Math.min((t - prevCT) * 0.06, 2);
+    prevCT = t;
+    cx.clearRect(0, 0, W, H);
+    let alive = 0;
+    for (let i = 0; i < pieces.length; i++) {
+      const p = pieces[i];
       if (p.a <= 0.01) continue;
       p.vy += p.g  * dt;
       p.y  += p.vy * dt;
       p.x  += p.vx * dt;
       p.r  += p.rv * dt;
-      if (p.y > cH - 70) p.a -= 0.018 * dt;
-      var alpha = p.a < 0 ? 0 : p.a > 1 ? 1 : p.a;
+      if (p.y > H - 70) p.a -= 0.018 * dt;
+      const alpha = p.a < 0 ? 0 : p.a > 1 ? 1 : p.a;
       if (alpha < 0.01) continue;
       alive++;
       cx.save();
@@ -693,66 +644,61 @@
       cx.fillRect(-(p.w * 0.5), -(p.h * 0.5), p.w, p.h);
       cx.restore();
     }
-
     if (alive > 0) {
       requestAnimationFrame(tickC);
     } else {
       pieces  = [];
       running = false;
-      cx.clearRect(0, 0, cW, cH);
+      cx.clearRect(0, 0, W, H);
     }
   }
 
-  window.addEventListener('load', function () {
-    setTimeout(launchConfetti, 900);
-  });
+  document.getElementById('celebrateBtn').addEventListener('click', launchConfetti);
 
-  /* ──────────────────────────────────────────────────
-     HAPPY BIRTHDAY MELODY (Web Audio)
-  ────────────────────────────────────────────────── */
+  window.addEventListener('load', () => setTimeout(launchConfetti, 900));
+
   (function () {
-    var freq = {
+    const freq = {
       G4:392.00, A4:440.00, B4:493.88,
       C5:523.25, D5:587.33, E5:659.25, F5:698.46, Fs5:739.99, G5:783.99,
       A5:880.00, Bb5:932.33, B5:987.77,
-      C6:1046.50, D6:1174.66
+      C6:1046.50, D6:1174.66,
     };
 
-    var BPM  = 84;
-    var BEAT = 60 / BPM;
+    const BPM  = 84;
+    const BEAT = 60 / BPM;
 
-    var v1 = [
+    const v1 = [
       ['G4',0.75],['G4',0.25],['A4',1],['G4',1],['C5',1],['B4',2],
       ['G4',0.75],['G4',0.25],['A4',1],['G4',1],['D5',1],['C5',2],
       ['G4',0.75],['G4',0.25],['G5',1],['E5',1],['C5',1],['B4',1],['A4',2],
       ['F5',0.75],['F5',0.25],['E5',1],['C5',1],['D5',1],['C5',3],
     ];
-    var v2 = [
+    const v2 = [
       ['C5',0.75],['C5',0.25],['D5',1],['C5',1],['F5',1],['E5',2],
       ['C5',0.75],['C5',0.25],['D5',1],['C5',1],['G5',1],['F5',2],
       ['C5',0.75],['C5',0.25],['C6',1],['A5',1],['F5',1],['E5',1],['D5',2],
       ['Bb5',0.75],['Bb5',0.25],['A5',1],['F5',1],['G5',1],['F5',3],
     ];
-    var v3 = [
+    const v3 = [
       ['D5',0.75],['D5',0.25],['E5',1],['D5',1],['G5',1],['Fs5',2],
       ['D5',0.75],['D5',0.25],['E5',1],['D5',1],['A5',1],['G5',2],
       ['D5',0.75],['D5',0.25],['D6',1],['B5',1],['G5',1],['Fs5',1],['E5',2],
       ['C6',0.75],['C6',0.25],['B5',1],['G5',1],['A5',1],['G5',3],
     ];
-    var coda = [
+    const coda = [
       ['REST',0.5],
       ['G4',0.2],['B4',0.2],['D5',0.2],['G5',0.2],['B5',0.2],
       ['D6',4],
     ];
 
-    var GAP  = [['REST', 1.5]];
-    var song = v1.concat(GAP, v2, GAP, v3, coda);
-    var played = false;
+    const song = v1.concat([['REST',1.5]], v2, [['REST',1.5]], v3, coda);
+    let played = false;
 
     function playNote(ctx, master, t, note, dur) {
       if (!freq[note]) return;
-      var osc = ctx.createOscillator();
-      var env = ctx.createGain();
+      const osc = ctx.createOscillator();
+      const env = ctx.createGain();
       osc.type = 'sine';
       osc.frequency.setValueAtTime(freq[note], t);
       env.gain.setValueAtTime(0, t);
@@ -768,12 +714,12 @@
     function play(ctx) {
       if (played) return;
       played = true;
-      var t      = ctx.currentTime + 0.12;
-      var master = ctx.createGain();
+      let t        = ctx.currentTime + 0.12;
+      const master = ctx.createGain();
       master.gain.setValueAtTime(0.22, t);
       master.connect(ctx.destination);
-      song.forEach(function (note) {
-        var dur = note[1] * BEAT;
+      song.forEach((note) => {
+        const dur = note[1] * BEAT;
         playNote(ctx, master, t, note[0], dur);
         t += dur;
       });
@@ -782,21 +728,18 @@
     function unlock() {
       if (played) return;
       try {
-        var ctx = new (window.AudioContext || window.webkitAudioContext)();
-        ctx.resume().then(function () { play(ctx); });
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        ctx.resume().then(() => play(ctx));
       } catch (e) {}
     }
 
-    ['click','touchstart','touchend','keydown','scroll','pointerdown'].forEach(function (ev) {
+    ['click','touchstart','touchend','keydown','scroll','pointerdown'].forEach((ev) => {
       document.addEventListener(ev, unlock, { once: true, passive: true });
     });
   }());
 
-  /* ──────────────────────────────────────────────────
-     TYPEWRITER — no initial delay, smooth per-char
-  ────────────────────────────────────────────────── */
   (function () {
-    var MSG =
+    const MSG =
       'Hello, Binibining Alex! Maligayang kaarawan sa\u2019yo. Aamin na ulit ako \u2014 crush pa rin kita, bleh. Hihi. ' +
       'Alam mo ba, sa mga mata ko, napakaganda mo, kahit hindi man tayo madalas nagkakatitigan. ' +
       'Haha. Pinagmamasdan lang kasi kita nang tahimik\u2026 at nakakatuwa pa yung bilis mong maubusan ng pasensya, ' +
@@ -806,14 +749,13 @@
       'Maraming salamat din dahil nakilala kita \u2014 isa iyon sa mga bagay na talagang nagpapasaya sa akin. ' +
       'Hehe\u2026 Ingat ka palagi, Binibining Alex!';
 
-    var bodyEl = document.getElementById('card-body');
-    var el     = document.getElementById('card-body-text');
-    var cursor = document.querySelector('.tw-cursor');
-    var i      = 0;
-    var started = false;
-    var rafId   = null;
-    var lastT   = 0;
-    var CHAR_MS = 28; /* milliseconds per character */
+    const bodyEl = document.getElementById('card-body');
+    const el     = document.getElementById('card-body-text');
+    const cursor = document.querySelector('.tw-cursor');
+    let i       = 0;
+    let started = false;
+    let lastT   = 0;
+    const CHAR_MS = 28;
 
     function typeStep(t) {
       if (i <= MSG.length) {
@@ -822,28 +764,25 @@
           i++;
           lastT = t;
         }
-        rafId = requestAnimationFrame(typeStep);
+        requestAnimationFrame(typeStep);
       } else {
-        /* hide cursor after typing finishes */
-        setTimeout(function () {
+        setTimeout(() => {
           cursor.style.animation = 'none';
           cursor.style.opacity   = '0';
         }, 1200);
       }
     }
 
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting && !started) {
           started = true;
           obs.disconnect();
-          /* measure height with full text, then clear for typing */
           el.textContent = MSG;
           bodyEl.style.minHeight = bodyEl.scrollHeight + 'px';
           el.textContent = '';
-          /* start immediately — no setTimeout delay */
           lastT = performance.now();
-          rafId = requestAnimationFrame(typeStep);
+          requestAnimationFrame(typeStep);
         }
       });
     }, { threshold: 0.25 });
